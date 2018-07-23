@@ -1,0 +1,8 @@
+#!/usr/bin/env ruby
+
+
+
+#### NOTES ####
+#In order for the user to run my Gem using bash commands, I ensured the permissions
+#for this file are Executable, as well as Read/Write. I added the executable permission
+#to the file using the command: "chmod +x top_10_companies".
