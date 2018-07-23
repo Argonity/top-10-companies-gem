@@ -1,6 +1,8 @@
 #!/usr/bin/env ruby
 
+require_relative '../lib/environment'
 
+CLI.new.welcome
 
 #### NOTES ####
 #In order for the user to run my Gem using bash commands, I ensured the permissions

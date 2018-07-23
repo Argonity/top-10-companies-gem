@@ -23,5 +23,6 @@ Building My First CLI Gem
 # Q&A
 Q - When naming my files/folders, should I put - or _ ?
 A -
-Q -
+Q - Github commits and messages.
 A -
+Q - Set up a local environment.
