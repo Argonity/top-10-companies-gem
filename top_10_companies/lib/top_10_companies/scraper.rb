@@ -1,4 +1,4 @@
-class Scraper
+class Top10Companies::Scraper
 
   #Setting the url in a constant variable since I will be scraping just one site.
   BASE_URL = "https://www.greatplacetowork.com/best-workplaces/100-best/2018"
