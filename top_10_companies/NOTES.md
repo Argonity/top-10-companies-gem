@@ -20,7 +20,7 @@ Building My First CLI Gem
       - Communication
       - Bosses
 
-# Q&A
+Q&A
 Q - When naming my files/folders, should I put - or _ ?
 A -
 Q - Github commits and messages. Test run with Ben.
