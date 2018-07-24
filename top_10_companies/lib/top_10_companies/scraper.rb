@@ -5,7 +5,10 @@ class Top10Companies::Scraper
 
   def self.scrape_companies
     doc = Nokogiri::HTML(open(BASE_URL))
+
+    doc.css('.row').each do |company_doc|
     binding.pry
+    end
   end
 
 end
