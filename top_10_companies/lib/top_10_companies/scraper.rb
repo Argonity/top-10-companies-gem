@@ -6,8 +6,12 @@ class Top10Companies::Scraper
   def self.scrape_companies
     doc = Nokogiri::HTML(open(BASE_URL))
 
-    doc.css('#list-detail-left-column').each do |company_info|
+    doc.css('#list-detail-left-column').each do |companies|
+      companies.css('.company').each do |company_info|
+        name = company_info.css('a.title').text.strip
+        name_url = company_info.css('a.title').attribute('href').value
       binding.pry
+    end
     end
   end
 
