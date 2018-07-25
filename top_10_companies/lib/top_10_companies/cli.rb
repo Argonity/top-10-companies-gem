@@ -8,8 +8,18 @@ class Top10Companies::CLI
     puts ""
 
     Top10Companies::Scraper.scrape_companies
-
+    main_menu
   end
 
+  def main_menu
+    puts "DID YOU KNOW?"
+    puts "-------------"
+    puts "Employees who say they have a great place to work were four times"
+    puts "more likely to give extra to get the job done."
+    puts "-----------------------------------------------------------------"
+    puts ""
+    puts "Here are the Top 10 Companies to Work For in 2018:"
+    puts ""
+  end
 
 end
