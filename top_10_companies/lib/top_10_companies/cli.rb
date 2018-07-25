@@ -2,9 +2,9 @@ class Top10Companies::CLI
 
   def welcome
     puts ""
-    puts "-----------------------------------------------------------------"
+    puts "*****************************************************************"
     puts "Welcome to the Top 10 list of Best Companies to Work For in 2018!"
-    puts "-----------------------------------------------------------------"
+    puts "*****************************************************************"
     puts ""
 
     Top10Companies::Scraper.scrape_companies
@@ -22,10 +22,19 @@ class Top10Companies::CLI
     puts ""
     companies = Top10Companies::Company.all
 
-    companies.each_with_index do |company, index|
-      puts "(#{index+1}) #{company.name.upcase}"
-    # binding.pry
+    companies.each.with_index(1) do |company, index|
+      puts "(#{index}) #{company.name.upcase}"
     end
+
+    puts ""
+    puts "Please input 1-10 to learn more details about a company."
+    puts ""
+    puts "-----------------------------------------------------------------"
+
+    input = gets.strip
+    index = input.to_i - 1
+
+    company = Top10Companies::Company.all[index]
   end
 
 end
