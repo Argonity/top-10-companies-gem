@@ -11,18 +11,10 @@ class Top10Companies::Scraper
         name = company_info.css('a.title').text.strip
         url = company_info.css('a.title').attribute('href').value
         industry = company_info.css('.industry').text.strip
-      binding.pry
+      Top10Companies::Company.new(name, url, industry)
     end
     end
+    binding.pry
   end
 
 end
-
-# -> Returned Empty Array:
-# -> doc.css('#list-detail-left-column.col-xs-12 col-md-8')
-# -> company_info.css('.col-xs-12 col-md-8')
-# -> company_info.css('.row company small no-margin-top list-filter-show')
-# -> company_info.css('.col-md-5 col-xs-12 company-text')
-# -> company_info.css('.row company small no-margin-top list-filter-show.col-md-5 col-xs-12 company-text')
-# -> company_info.css('.row company small no-margin-top list-filter-show.col-md-5 col-xs-12 company-text a')
-# -> company_info.css('.row company small no-margin-top list-filter-show.col-md-5 col-xs-12 company-text a title')

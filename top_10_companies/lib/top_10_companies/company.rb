@@ -1,10 +1,19 @@
 class Top10Companies::Company
 
-  attr_accessor :url, :name, :description, :number_of_employees, :revenues, :programs, :employee_ratings
-  #:industry?
+  attr_accessor :name, :url, :industry, :description, :number_of_employees, :revenues, :programs, :employee_ratings
 
+  @@all = []
 
+  def initialize(name, url, industry)
+    @name = name
+    @url = url
+    @industry = industry
+    @@all << self
+  end
 
+  def self.all
+    @@all
+  end
 
   def description
 
