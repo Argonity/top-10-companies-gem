@@ -1,6 +1,7 @@
 class Top10Companies::Company
 
   attr_accessor :url, :name, :description, :number_of_employees, :revenues, :programs, :employee_ratings
+  #:industry?
 
 
 
