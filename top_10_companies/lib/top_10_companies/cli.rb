@@ -20,6 +20,12 @@ class Top10Companies::CLI
     puts ""
     puts "Here are the Top 10 Companies to Work For in 2018:"
     puts ""
+    companies = Top10Companies::Company.all
+
+    companies.each_with_index do |company, index|
+      puts "(#{index+1}) #{company.name.upcase}"
+    # binding.pry
+    end
   end
 
 end
