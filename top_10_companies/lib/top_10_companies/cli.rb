@@ -24,6 +24,7 @@ class Top10Companies::CLI
 
     companies.each.with_index(1) do |company, index|
       puts "(#{index}) #{company.name.upcase}"
+      # puts "Industry: #{company.industry}"
     end
 
     puts ""
@@ -35,6 +36,8 @@ class Top10Companies::CLI
     index = input.to_i - 1
 
     company = Top10Companies::Company.all[index]
+
+    Top10Companies::Scraper.scrape_company_details(company)
   end
 
 end

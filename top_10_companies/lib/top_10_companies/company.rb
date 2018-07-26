@@ -1,6 +1,7 @@
 class Top10Companies::Company
 
-  attr_accessor :name, :url, :industry, :description, :number_of_employees, :revenues, :programs, :employee_ratings
+  attr_accessor :name, :url, :industry, :description
+  #:number_of_employees, :revenues, :programs, :employee_ratings
 
   @@all = []
 

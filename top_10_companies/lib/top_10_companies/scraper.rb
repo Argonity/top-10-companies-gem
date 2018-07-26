@@ -14,7 +14,15 @@ class Top10Companies::Scraper
       Top10Companies::Company.new(name, url, industry)
     end
     end
-    # binding.pry
+  end
+
+  def self.scrape_company_details(company)
+    url = company.url
+    detail_doc = Nokogiri::HTML(open(url))
+    detail_doc.css('.company_right p')[1]
+    description = detail_doc.css('.company_right p')[1].text
+    
+    binding.pry
   end
 
 end
