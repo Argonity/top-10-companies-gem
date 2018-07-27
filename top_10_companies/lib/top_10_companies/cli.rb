@@ -38,14 +38,16 @@ class Top10Companies::CLI
 
     Top10Companies::Scraper.scrape_company_details(company)
 
-    puts "Here are the details:"
-    puts ""
-    puts company.industry
-    puts company.revenue
-    puts "Employee Rating: " + company.employee_rating
-    puts ""
-    puts "What They Do:"
-    puts company.description
+    #### Refactored into another method called display_company_details ####
+    # puts "Here are the details:"
+    # puts ""
+    # puts company.industry
+    # puts company.revenue
+    # puts "Employee Rating: " + company.employee_rating
+    # puts ""
+    # puts "What They Do:"
+    # puts company.description
+    display_company_details(company)
 
     puts ""
     puts "Would you like to choose another company? Y or N?"
@@ -60,6 +62,17 @@ class Top10Companies::CLI
       puts "Your answer was not recognized."
       main_menu
     end
+  end
+
+  def display_company_details(company)
+    puts "Here are the details for #{company.name}:"
+    puts ""
+    puts company.industry
+    puts company.revenue
+    puts "Employee Rating: " + company.employee_rating
+    puts ""
+    puts "What They Do:"
+    puts company.description
   end
 
 end
