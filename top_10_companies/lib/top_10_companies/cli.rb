@@ -42,7 +42,9 @@ class Top10Companies::CLI
     puts ""
     puts company.industry
     puts company.revenue
+    puts "Employee Rating: " + company.employee_rating
     puts ""
+    puts "What They Do:"
     puts company.description
 
     puts ""

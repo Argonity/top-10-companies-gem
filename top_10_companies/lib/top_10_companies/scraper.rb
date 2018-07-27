@@ -19,8 +19,9 @@ class Top10Companies::Scraper
     url = company.url
     doc = Nokogiri::HTML(open(url))
 
-    company.industry = doc.css('.intro table tr td')[1].text.strip
-    company.revenue = doc.css('.intro table tr td')[6].text.strip
+    company.industry = doc.css('.intro table td')[1].text.strip
+    company.revenue = doc.css('.intro table td')[7].text.strip
+    company.employee_rating = doc.css('.company_rating_text p').text.strip
     company.description = doc.css('.company_right p')[1].text
   end
 
