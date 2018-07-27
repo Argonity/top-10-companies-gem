@@ -1,6 +1,5 @@
 class Top10Companies::Scraper
 
-  #Setting the url in a constant variable since I will be scraping just one site.
   BASE_URL = "https://www.greatplacetowork.com/best-workplaces/100-best/2018"
 
   def self.scrape_companies
@@ -11,7 +10,7 @@ class Top10Companies::Scraper
         name = company_info.css('a.title').text.strip
         url = company_info.css('a.title').attribute('href').value
         industry = company_info.css('.industry').text.strip
-      Top10Companies::Company.new(name, url, industry)
+      Top10Companies::Company.new(name, url)
     end
     end
   end
@@ -20,7 +19,8 @@ class Top10Companies::Scraper
     url = company.url
     doc = Nokogiri::HTML(open(url))
 
-    company.industry = doc.css('.intro table tr td')[1].text
+    company.industry = doc.css('.intro table tr td')[1].text.strip
+    company.revenue = doc.css('.intro table tr td')[6].text.strip
     company.description = doc.css('.company_right p')[1].text
   end
 
