@@ -38,6 +38,13 @@ class Top10Companies::CLI
     company = Top10Companies::Company.all[index]
 
     Top10Companies::Scraper.scrape_company_details(company)
+
+    puts "Here are the details:"
+
+    puts company.industry
+    puts company.description
+
+    main_menu
   end
 
 end

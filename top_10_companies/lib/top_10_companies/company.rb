@@ -5,10 +5,9 @@ class Top10Companies::Company
 
   @@all = []
 
-  def initialize(name, url, industry)
+  def initialize(name, url)
     @name = name
     @url = url
-    @industry = industry
     @@all << self
   end
 
