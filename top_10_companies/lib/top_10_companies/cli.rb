@@ -22,6 +22,7 @@ class Top10Companies::CLI
     puts ""
     companies = Top10Companies::Company.all
 
+    #REFACTOR => Should this method be in the Company class in a #print.all?
     companies.each.with_index(1) do |company, index|
       puts "(#{index}) #{company.name.upcase}"
     end
@@ -64,6 +65,7 @@ class Top10Companies::CLI
     end
   end
 
+  #REFACTOR => Should this method be in the Company class?
   def display_company_details(company)
     puts "Here are the details for #{company.name}:"
     puts ""
