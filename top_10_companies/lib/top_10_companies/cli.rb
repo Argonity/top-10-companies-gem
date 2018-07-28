@@ -6,8 +6,7 @@ class Top10Companies::CLI
     puts "Welcome to the Top 10 list of Best Companies to Work For in 2018!"
     puts "*****************************************************************"
     puts ""
-    puts "DID YOU KNOW?"
-    puts "-------------"
+    puts "--------------------------DID YOU KNOW?--------------------------"
     puts "Employees who say they have a great place to work were four times"
     puts "more likely to give extra to get the job done."
     puts "-----------------------------------------------------------------"
@@ -39,7 +38,7 @@ class Top10Companies::CLI
 
     Top10Companies::Scraper.scrape_company_details(company)
 
-    #### Refactored into another method called display_company_details ####
+    # Refactored into another method called display_company_details
     # puts "Here are the details:"
     # puts ""
     # puts company.industry
@@ -65,7 +64,7 @@ class Top10Companies::CLI
     end
   end
 
-  #REFACTOR => Should this method be in the Company class?
+  #REFACTOR => Should this method be in the Company class as self.display_company_details?
   def display_company_details(company)
     puts "Here are the details for #{company.name}:"
     puts ""
