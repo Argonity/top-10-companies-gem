@@ -69,11 +69,12 @@ class Top10Companies::CLI
     puts "Here are the details for #{company.name}:"
     puts ""
     puts company.industry
-    puts company.revenue
+    puts ""
+    puts "Employee Quote: " + company.employee_quote
+    puts ""
     puts "Employee Rating: " + company.employee_rating
     puts ""
-    puts "What They Do:"
-    puts company.description
+    puts "What They Do: " + company.description
   end
 
 end
