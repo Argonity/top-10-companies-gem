@@ -1,6 +1,6 @@
 # Top10Companies
 
-This Ruby Gem provides a CLI to view the Top 10 Companies to Work For in 2018, as displayed on greatplacetowork.com. You will be able to view a company's detail such as Industry, Employee Rating, and What They Do.
+This Ruby Gem provides a CLI to view the Top 10 Companies to Work For in 2018, as displayed on greatplacetowork.com.
 
 ## Installation
 
@@ -20,7 +20,7 @@ Or install it yourself as:
 
 ## Usage
 
-Once you've installed the Gem, follow the on-screen prompts to select a company from the top 10 list
+Once you've installed the Gem, follow the on-screen prompts to select a company from the top 10 list by inputing 1-10. Once you've made a selection, that company's details are displayed such as its Industry, Employee Rating, and What They Do. You will then be asked to reply "Y" or "N" if you'd like to view another company's details. If you reply "Y", the program will again display the list to choose from. If you reply "N", the program exits with a goodbye message.
 
 ## Development
 
