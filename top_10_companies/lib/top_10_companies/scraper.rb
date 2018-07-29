@@ -9,7 +9,6 @@ class Top10Companies::Scraper
       companies.css('.company')[0..9].each do |company_info|
         name = company_info.css('a.title').text.strip
         url = company_info.css('a.title').attribute('href').value
-        industry = company_info.css('.industry').text.strip
       Top10Companies::Company.new(name, url)
     end
     end

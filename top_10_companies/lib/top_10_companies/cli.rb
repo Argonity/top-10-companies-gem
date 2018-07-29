@@ -21,7 +21,6 @@ class Top10Companies::CLI
     puts ""
     companies = Top10Companies::Company.all
 
-    #REFACTOR => Should this method be in the Company class in a #print.all?
     companies.each.with_index(1) do |company, index|
       puts "(#{index}) #{company.name.upcase}"
     end
@@ -36,17 +35,10 @@ class Top10Companies::CLI
 
     company = Top10Companies::Company.all[index]
 
-    Top10Companies::Scraper.scrape_company_details(company)
+    if !company.industry || !company.employee_quote || !company.employee_rating || !company.description
+      Top10Companies::Scraper.scrape_company_details(company)
+    end
 
-    # Refactored into another method called display_company_details
-    # puts "Here are the details:"
-    # puts ""
-    # puts company.industry
-    # puts company.revenue
-    # puts "Employee Rating: " + company.employee_rating
-    # puts ""
-    # puts "What They Do:"
-    # puts company.description
     display_company_details(company)
 
     puts ""
@@ -64,7 +56,6 @@ class Top10Companies::CLI
     end
   end
 
-  #REFACTOR => Should this method be in the Company class as self.display_company_details?
   def display_company_details(company)
     puts "Here are the details for #{company.name}:"
     puts ""

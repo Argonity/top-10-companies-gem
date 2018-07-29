@@ -15,4 +15,4 @@ Building My First CLI Gem
 - The program will then ask the user if they would like to choose another company
   from the list to view its details. If the user inputs "Y", then it will loop back to
   #main_menu and once again display the list of companies to select from. If the
-  user inputs "N", the program will display a goodbye message and end.
+  user inputs "N", the program will display a goodbye message and exit.
