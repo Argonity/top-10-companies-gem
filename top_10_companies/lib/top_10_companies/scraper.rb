@@ -5,6 +5,7 @@ class Top10Companies::Scraper
   def self.scrape_companies
     doc = Nokogiri::HTML(open(BASE_URL))
 
+    #Need both iterators?
     doc.css('#list-detail-left-column').each do |companies|
       companies.css('.company')[0..9].each do |company_info|
         name = company_info.css('a.title').text.strip

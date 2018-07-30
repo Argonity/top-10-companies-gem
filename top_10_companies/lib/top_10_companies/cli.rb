@@ -16,6 +16,8 @@ class Top10Companies::CLI
   end
 
   def main_menu
+    # BREAK THIS OUT INTO SMALLER METHODS
+    ## each method does one thing
     puts ""
     puts "Here are the Top 10 Companies to Work For in 2018:"
     puts ""
@@ -33,6 +35,8 @@ class Top10Companies::CLI
     input = gets.strip
     index = input.to_i - 1
 
+    # WHAT HAPPENS IF USER PUTS IN A NUMBER GREATER THAN 10 OR LESS THAN 1 (I.E.  -1)
+    # Add some conditional logic for those edge cases
     company = Top10Companies::Company.all[index]
 
     if !company.industry || !company.employee_quote || !company.employee_rating || !company.description
