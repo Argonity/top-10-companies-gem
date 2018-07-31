@@ -16,16 +16,8 @@ class Top10Companies::CLI
   end
 
   def main_menu
-    # BREAK THIS OUT INTO SMALLER METHODS
-    ## each method does one thing
-    puts ""
-    puts "Here are the Top 10 Companies to Work For in 2018:"
-    puts ""
-    companies = Top10Companies::Company.all
 
-    companies.each.with_index(1) do |company, index|
-      puts "(#{index}) #{company.name.upcase}"
-    end
+    display_companies
 
     puts ""
     puts "Please input 1-10 to learn more details about a company."
@@ -35,8 +27,11 @@ class Top10Companies::CLI
     input = gets.strip
     index = input.to_i - 1
 
-    # WHAT HAPPENS IF USER PUTS IN A NUMBER GREATER THAN 10 OR LESS THAN 1 (I.E.  -1)
-    # Add some conditional logic for those edge cases
+    if index < 0 || index > 10
+      puts "Invalid input. Please enter 1-10."
+      input = gets.strip
+    end
+
     company = Top10Companies::Company.all[index]
 
     if !company.industry || !company.employee_quote || !company.employee_rating || !company.description
@@ -57,6 +52,17 @@ class Top10Companies::CLI
     else
       puts "Your answer was not recognized."
       main_menu
+    end
+  end
+
+  def display_companies
+    puts ""
+    puts "Here are the Top 10 Companies to Work For in 2018:"
+    puts ""
+    companies = Top10Companies::Company.all
+
+    companies.each.with_index(1) do |company, index|
+      puts "(#{index}) #{company.name.upcase}"
     end
   end
 
