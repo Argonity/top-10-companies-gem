@@ -16,8 +16,14 @@ class Top10Companies::CLI
   end
 
   def main_menu
+    puts ""
+    puts "Here are the Top 10 Companies to Work For in 2018:"
+    puts ""
+    companies = Top10Companies::Company.all
 
-    display_companies
+    companies.each.with_index(1) do |company, index|
+      puts "(#{index}) #{company.name.upcase}"
+    end
 
     puts ""
     puts "Please input 1-10 to learn more details about a company."
@@ -27,10 +33,9 @@ class Top10Companies::CLI
     input = gets.strip
     index = input.to_i - 1
 
-    if index < 0 || index > 10
+    if !(0..10).include?(index)
       puts "Invalid input. Please enter 1-10."
-      input = gets.strip
-    end
+    else (0..10).include?(index)
 
     company = Top10Companies::Company.all[index]
 
@@ -39,6 +44,7 @@ class Top10Companies::CLI
     end
 
     display_company_details(company)
+  end
 
     puts ""
     puts "Would you like to choose another company? Y or N?"
@@ -52,17 +58,6 @@ class Top10Companies::CLI
     else
       puts "Your answer was not recognized."
       main_menu
-    end
-  end
-
-  def display_companies
-    puts ""
-    puts "Here are the Top 10 Companies to Work For in 2018:"
-    puts ""
-    companies = Top10Companies::Company.all
-
-    companies.each.with_index(1) do |company, index|
-      puts "(#{index}) #{company.name.upcase}"
     end
   end
 
