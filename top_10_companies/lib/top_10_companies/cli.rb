@@ -16,6 +16,29 @@ class Top10Companies::CLI
   end
 
   def main_menu
+
+    display_companies
+
+    puts ""
+    puts "Please input 1-10 to learn more details about a company."
+    puts ""
+    puts "To exit the program, please type 'exit'."
+    puts "-----------------------------------------------------------------"
+
+    input = gets.strip
+    index = input.to_i - 1
+
+    if !index.between?(0, 9) && input != "exit"
+      puts "Invalid input."
+      main_menu
+    elsif input == "exit"
+      puts "Thank you for using my Top10Companies Gem! Goodbye!"
+    else
+      display_company_details(index)
+    end
+  end
+
+  def display_companies
     puts ""
     puts "Here are the Top 10 Companies to Work For in 2018:"
     puts ""
@@ -24,28 +47,9 @@ class Top10Companies::CLI
     companies.each.with_index(1) do |company, index|
       puts "(#{index}) #{company.name.upcase}"
     end
-
-    puts ""
-    puts "Please input 1-10 to learn more details about a company."
-    puts ""
-    puts "-----------------------------------------------------------------"
-
-    input = gets.strip
-    index = input.to_i - 1
-
-    if !(0..10).include?(index)
-      puts "Invalid input. Please enter 1-10."
-    else (0..10).include?(index)
-
-    company = Top10Companies::Company.all[index]
-
-    if !company.industry || !company.employee_quote || !company.employee_rating || !company.description
-      Top10Companies::Scraper.scrape_company_details(company)
-    end
-
-    display_company_details(company)
   end
 
+  def user_selection
     puts ""
     puts "Would you like to choose another company? Y or N?"
 
@@ -61,7 +65,14 @@ class Top10Companies::CLI
     end
   end
 
-  def display_company_details(company)
+  def display_company_details(index)
+
+    company = Top10Companies::Company.all[index]
+
+    if !company.industry || !company.employee_quote || !company.employee_rating || !company.description
+      Top10Companies::Scraper.scrape_company_details(company)
+    end
+
     puts "Here are the details for #{company.name}:"
     puts ""
     puts company.industry
@@ -71,6 +82,8 @@ class Top10Companies::CLI
     puts "Employee Rating: " + company.employee_rating
     puts ""
     puts "What They Do: " + company.description
+
+    user_selection
   end
 
 end
